@@ -1,4 +1,4 @@
-package lgh.spring.boot.webflux.demo;
+package lgh.spring.boot.webflux.demo.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +18,7 @@ public class RouterConfig {
 	@Bean
 	public RouterFunction<ServerResponse> appRouter() {
 		return RouterFunctions.route(RequestPredicates.GET("/time"), timerHandler::getTime)
-				.andRoute(RequestPredicates.GET("/date"), timerHandler::getDate);
+				.andRoute(RequestPredicates.GET("/date"), timerHandler::getDate)
+				.andRoute(RequestPredicates.GET("/times"), timerHandler::getTimePerSec);
 	}
 }
